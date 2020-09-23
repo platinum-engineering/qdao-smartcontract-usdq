@@ -14,26 +14,24 @@ contract USDQToken is StandardToken, TrueBurnableToken, DetailedERC20, TruePausa
     constructor(address _firstOwner,
                 address _secondOwner,
                 address _thirdOwner,
-                address _fourthOwner,
-                address _fifthOwner) DetailedERC20("USDQ Stablecoin by Q DAO v1.0", "USDQ", DECIMALS)  public {
+                address _governance) DetailedERC20("USDQ Stablecoin by Q DAO v1.0", "USDQ", DECIMALS)  public {
 
         owners.push(_firstOwner);
         owners.push(_secondOwner);
         owners.push(_thirdOwner);
-        owners.push(_fourthOwner);
-        owners.push(_fifthOwner);
-        owners.push(msg.sender);
 
         ownersIndices[_firstOwner] = 1;
         ownersIndices[_secondOwner] = 2;
         ownersIndices[_thirdOwner] = 3;
-        ownersIndices[_fourthOwner] = 4;
-        ownersIndices[_fifthOwner] = 5;
-        ownersIndices[msg.sender] = 6;
 
-        howManyOwnersDecide = 4;
+        howManyOwnersDecide = 2;
+        governanceContracts[_governance] = true;
     }
 
+    function getOwner() external view returns (address) {
+        return owners[0];
+    }
+    
 
     function mint(address _to, uint256 _amount) external onlyGovernanceContracts() returns (bool){
         totalSupply_ = totalSupply_.add(_amount);

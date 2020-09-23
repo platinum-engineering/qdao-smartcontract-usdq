@@ -15,6 +15,7 @@
     "lint:all:fix": "npm run lint:fix && npm run lint:sol:fix",
     "console": "truffle console",
     "coverage": "scripts/coverage.sh",
+    "truffle-local-compile": "node_modules/.bin/truffle compile",
     "deploy-rinkeby": "rm -f -R build && truffle deploy --network rinkeby --reset && node scripts/init_contracts.js && node scripts/set_approval_for_all_by_promoter.js",
     "deploy-live": "rm -f -R build && truffle deploy --network live --reset && NETWORK=mainnet node scripts/init_contracts.js && NETWORK=mainnet node scripts/set_approval_for_all_by_promoter.js"
   },

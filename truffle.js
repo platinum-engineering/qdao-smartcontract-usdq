@@ -34,6 +34,18 @@ module.exports = {
             network_id: 1,
             gasPrice: gasPrice,
             gas: 6700000
+        },
+        bscTestnet: {
+            provider: () => new HDWalletProvider(process.env.MNEMONIC_DEPLOY, 'https://data-seed-prebsc-1-s1.binance.org:8545'),
+            network_id: 97,
+            gasPrice: gasPrice,
+            gas: 6700000
+        },
+        bscMainnet: {
+            provider: () => new HDWalletProvider(process.env.MNEMONIC_DEPLOY, 'https://bsc-dataseed1.binance.org'),
+            network_id: 56,
+            gasPrice: gasPrice,
+            gas: 6700000
         }
     },
     solc: {

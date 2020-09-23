@@ -29,3 +29,5 @@ build/
 
 # Except this file
 !.gitkeep
+
+.prettierignore
